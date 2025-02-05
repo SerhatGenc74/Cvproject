@@ -1,8 +1,22 @@
-﻿@{
+﻿@using ProjectDunyam.ViewModels
+@model IEnumerable<Project>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h2>Projeler</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Başlık</th>
+        <th>Açıklama</th>
+    </tr>
+    @foreach (var project in Model)
+    {
+        <tr>
+            <td>@project.ProjectId</td>
+            <td>@project.Title</td>
+            <td>@project.Description</td>
+        </tr>
+    }
+</table>

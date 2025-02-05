@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\serha\\OneDrive\\Masaüstü\\projedunya\\ProjectDunyam\\ProjectDunyam\\ProjectDunyam.csproj": {}
+    "D:\\My\\Github\\Cvproject\\ProjectDunyam.csproj": {}
   },
   "projects": {
-    "C:\\Users\\serha\\OneDrive\\Masaüstü\\projedunya\\ProjectDunyam\\ProjectDunyam\\ProjectDunyam.csproj": {
+    "D:\\My\\Github\\Cvproject\\ProjectDunyam.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\serha\\OneDrive\\Masaüstü\\projedunya\\ProjectDunyam\\ProjectDunyam\\ProjectDunyam.csproj",
+        "projectUniqueName": "D:\\My\\Github\\Cvproject\\ProjectDunyam.csproj",
         "projectName": "ProjectDunyam",
-        "projectPath": "C:\\Users\\serha\\OneDrive\\Masaüstü\\projedunya\\ProjectDunyam\\ProjectDunyam\\ProjectDunyam.csproj",
-        "packagesPath": "C:\\Users\\serha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\serha\\OneDrive\\Masaüstü\\projedunya\\ProjectDunyam\\ProjectDunyam\\obj\\",
+        "projectPath": "D:\\My\\Github\\Cvproject\\ProjectDunyam.csproj",
+        "packagesPath": "C:\\Users\\isor5\\.nuget\\packages\\",
+        "outputPath": "D:\\My\\Github\\Cvproject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\serha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\isor5\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -50,6 +50,24 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
