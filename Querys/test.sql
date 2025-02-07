@@ -13,6 +13,13 @@ EXEC AdminLogin
 
 SELECT @showUserId AS SessionID;
 
+Declare @isOpen bit;
+
+Exec SessionControl
+@userId = @showUserId,
+@isSessionOpen = @isOpen OUTPUT;
+
+Select @isOpen;
 
 
 
