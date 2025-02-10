@@ -1,7 +1,7 @@
 create procedure AddAdmin 
   @nickName varchar(25),
   @email varchar(100),
-  @password varchar(20)
+  @password varchar(max)
 as
 begin TRAN
    SET NOCOUNT ON;
@@ -26,21 +26,25 @@ begin TRAN
 	  return;
    end
 
-
-	Declare @userId varchar(5);
+	Declare @userId nchar(5);
 	 WHILE 1 = 1
     BEGIN
         SET @userId = (SELECT LEFT(NEWID(), 5) AS RandomID);
         IF NOT EXISTS (SELECT 1 FROM AdminUsers WHERE userId = @userId)
             BREAK;
     END
-	Declare @hashedPassword varchar(20);
 
-	Set @hashedPassword = Convert(varchar(20),HASHBYTES('SHA2_256', @password),1);
+	OPEN SYMMETRIC KEY MySymmetricKey
+    DECRYPTION BY CERTIFICATE MyCert;
 
+	Declare @encryptedPassword  varBinary(max);
+
+	Set @encryptedPassword = EncryptByKey(KEY_GUID('MySymmetricKey'), @password);
+
+	CLOSE SYMMETRIC KEY MySymmetricKey;
 
    Insert Into AdminUsers(userId,nickName,email,password) 
-   values (@userId, @nickName, @email, @hashedPassword);
+   values (@userId, @nickName, @email, @encryptedPassword);
 
    if @@ERROR > 0
    begin

@@ -1,14 +1,19 @@
+ï»¿
+-- ADD ADMIN
 EXEC AddAdmin
-@nickName = 'serhat',
-@email = 'ses@gmail.com',
-@password = 'Aa15876444';
+@nickName = 'ismail',
+@email = 'is@gmail.com',
+@password = '12345';
+--/ ADD ADMIN
 
 
-DECLARE @showUserId VARCHAR(20);
+-- ADMIN LOGIN - SESSION CONTROL
+
+DECLARE @showUserId VARCHAR(max);
 
 EXEC AdminLogin 
-@nickName = 'serhat',
-@password = 'Aa15876444',
+@nickName = 'ismail',
+@password = '12345',
 @userId = @showUserId OUTPUT;
 
 SELECT @showUserId AS SessionID;
@@ -21,9 +26,19 @@ Exec SessionControl
 
 Select @isOpen;
 
+--/ ADMIN LOGIN - SESSION CONTROL
 
 
-DECLARE @hashedPassword varchar(20);
-SET @hashedPassword = convert(varchar(20), HASHBYTES('SHA2_256', 'Aa15876444'),1); -- Kullanýcýnýn girdiði þifre
+-- CREATE CONTENT 
 
-SELECT *, @hashedPassword FROM AdminUsers WHERE nickName = 'serhat' ;
+EXEC CreateContent 
+@type = 'about',
+@tags = 'gamedevCV, devCV, myDeveloperBackground',
+@visibleContent = 'Ben KÃ¼Ã§Ã¼k bir Ã§ocuk iken kod dÃ¼nyasÄ±na giriÅŸ yaptÄ±m.',
+@content = '',
+@subContent = '';
+
+--/ CREATE CONTENT 
+
+
+

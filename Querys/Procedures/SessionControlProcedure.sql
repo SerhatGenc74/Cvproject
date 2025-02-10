@@ -1,5 +1,5 @@
-alter Procedure SessionControl
-@userId varchar(5),
+create Procedure SessionControl
+@userId nchar(5),
 @isSessionOpen bit OUTPUT
 as
 BEGIN 
