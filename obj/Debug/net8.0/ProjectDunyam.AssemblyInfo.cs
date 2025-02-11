@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProjectDunyam")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cfd94cc6aea72d6ecfa617dcb198087a3f8ab1d4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bf6d45319b6d557db5b8cb71566cc8d88b80d799")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProjectDunyam")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProjectDunyam")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

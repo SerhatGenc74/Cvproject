@@ -34,7 +34,7 @@ end
 
     WHEN NOT MATCHED BY TARGET THEN
         INSERT (projectId, type, visibleContent, content, subContent, deleteId)
-        VALUES (source.projectId, source.type, source.visibleContent, source.content, source.subContent, source.deleteId)
+        VALUES (@projectId, source.type, source.visibleContent, source.content, source.subContent, source.deleteId)
 
     WHEN NOT MATCHED BY SOURCE AND target.projectId = @projectId THEN
         DELETE;

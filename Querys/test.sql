@@ -59,13 +59,16 @@ EXEC CreateProject
    'test,project',
      @details;
 
+--/ Project Create
 
+
+-- GetProject
 EXEC GetProjectDetails
 '26B0';
 
--- Project Create
+--/ GetProject 
 
-
+select * from Projects;
 
 
 -- Project Update

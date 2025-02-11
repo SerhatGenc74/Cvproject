@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Veritabaný baðlantýsýný ayarla
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("EmmiStrings")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("EmmiString")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
