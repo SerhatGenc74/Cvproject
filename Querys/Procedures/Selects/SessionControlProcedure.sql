@@ -10,5 +10,5 @@ BEGIN
    return;
  end
 
-  SET @isSessionOpen = ISNULL((SELECT 1 FROM AdminUsers WHERE userId = @userId), 0);
+  SET @isSessionOpen = ISNULL((SELECT 1 FROM AdminUsers WHERE userId = @userId AND (Role = 'Admin' OR Role = 'NewAdmin' OR Role = 'Owner')), 0);
 end 

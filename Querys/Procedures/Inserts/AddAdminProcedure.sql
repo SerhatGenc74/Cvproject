@@ -1,31 +1,15 @@
 create procedure AddAdmin 
-  @nickName varchar(25),
-  @email varchar(100),
-  @password varchar(max)
+  @email varchar(100)
 as
 begin TRAN
    SET NOCOUNT ON;
 
-
-   if @nickName is null OR LTRIM(RTRIM(@nickName)) = ''
-   OR @email is null OR LTRIM(RTRIM(@email)) =''
-   OR @password is null OR LTRIM(RTRIM(@password)) = ''
+   if  @email is null OR LTRIM(RTRIM(@email)) =''
    begin
-      RAISERROR('Kullanıcı adı, E-posta veya Şifre boş olamaz', 16,1);
+      RAISERROR(' E-posta boş olamaz', 16,1);
 	  return;
    end
-
-   if exists (select 1 from AdminUsers Where nickName = @nickName) 
-   begin
-      RAISERROR('Var olan bir kullanıcı adını kullananmazsınız.',16,1);
-	  return;
-   end
-      if exists (select 1 from AdminUsers Where email = @email) 
-   begin
-      RAISERROR('Var olan bir eposta adresini kullananmazsınız.',16,1);
-	  return;
-   end
-
+    
 	Declare @userId nchar(5);
 	 WHILE 1 = 1
     BEGIN
@@ -37,14 +21,15 @@ begin TRAN
 	OPEN SYMMETRIC KEY MySymmetricKey
     DECRYPTION BY CERTIFICATE MyCert;
 
+	Declare @password varchar(8) =(SELECT LEFT(NEWID(), 10) AS RandomID);
 	Declare @encryptedPassword  varBinary(max);
 
 	Set @encryptedPassword = EncryptByKey(KEY_GUID('MySymmetricKey'), @password);
 
 	CLOSE SYMMETRIC KEY MySymmetricKey;
 
-   Insert Into AdminUsers(userId,nickName,email,password) 
-   values (@userId, @nickName, @email, @encryptedPassword);
+   Insert Into AdminUsers(userId,nickName,email, Role,password) 
+   values (@userId, @userId, @email, 'NewAdmin', @encryptedPassword);
 
    if @@ERROR > 0
    begin

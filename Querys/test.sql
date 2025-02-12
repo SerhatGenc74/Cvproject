@@ -1,10 +1,16 @@
-﻿
--- ADD ADMIN
+﻿-- ADD ADMIN
 EXEC AddAdmin
-@nickName = 'ismail',
-@email = 'is@gmail.com',
-@password = '12345';
+@email = 'ismail@gmail.com'
 --/ ADD ADMIN
+
+EXEC GetAllAdmins;
+
+
+EXEC NewAdminFirstInfoEdit
+@userId = 'D207D',
+@nickName = 'ismailKemal',
+@password = '12345';
+
 
 
 -- ADMIN LOGIN - SESSION CONTROL
@@ -12,7 +18,7 @@ EXEC AddAdmin
 DECLARE @showUserId VARCHAR(max);
 
 EXEC AdminLogin 
-@nickName = 'ismail',
+@nickName = 'ismailEmme',
 @password = '12345',
 @userId = @showUserId OUTPUT;
 
