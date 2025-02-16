@@ -1,0 +1,38 @@
+USE [CVWebSiteDB]
+
+GO
+
+SET ANSI_PADDING ON
+
+
+GO
+
+CREATE NONCLUSTERED INDEX PIX1 ON Projects
+(
+	projectId ASC,
+	deleteId ASC
+)
+GO
+CREATE NONCLUSTERED INDEX CIX1 ON Contents
+(
+   type ASC
+)
+GO
+CREATE NONCLUSTERED INDEX PDIX1 ON ProjectDetails
+(
+   id ASC,
+   projectId ASC
+)
+GO
+CREATE NONCLUSTERED INDEX AUIX1 ON AdminUsers
+(
+   userId ASC,
+   Role ASC
+)
+GO
+CREATE NONCLUSTERED INDEX AUIX2 ON AdminUsers
+(
+   userId ASC,
+   nickName ASC,
+   Role ASC
+)
